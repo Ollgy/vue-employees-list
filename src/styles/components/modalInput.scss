@@ -1,0 +1,111 @@
+.modal-input {
+  width: 100vw;
+  height: 100vh;
+  position:fixed;
+  top:0;
+  left:0;
+  font-size: 20px;
+  background-color: rgba(#fff, 0.8);
+  transition:1s;
+  z-index:100;
+}
+
+.edit-block{
+  width: 100%;
+  height: 75%;
+  padding: 50px 20px 20px 20px;
+  display:flex;
+}
+
+.photo-block, .person-block, .address-block{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.input{
+  width: 90%;
+  max-width:300px;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  border: 2px solid #798186;
+  outline: none;
+  resize: none;
+  margin-bottom: 15px;
+   
+    &:focus{
+      border: 2px solid #f97908;
+    }
+}
+
+.chb-label{
+  position:relative;
+}
+
+.chb-input{
+  visibility: hidden;
+  margin-right: 20px;
+    &:checked+.chb-custom{
+      border: 2px solid #f97908;
+      &:before{
+          opacity:1;
+          transition:0.6s;
+      }
+
+      &:after{
+          opacity:1;
+          transition:0.6s;  
+      }
+  }
+}  
+  .chb-custom{
+      position:absolute;
+      left:0;
+      top:0;
+      width: 20px;
+      height: 20px;
+      background-color: #ffffff ;
+      border: 2px solid #798186;
+      transform: translate(0,15%);
+
+      &:before{
+          content: '';
+          position: absolute; 
+          left: 1px; 
+          top:50%;  
+          width: 8px;
+          height: 3px;
+          background: #f97908;               
+          transform: rotate(50deg) translate(0,-50%);
+          opacity:0;
+          transition:0.6s;    
+      }
+      &:after{
+          content: '';
+          position: absolute; 
+          left: 6px;
+          top:50%;
+          width: 8px;
+          height: 3px;
+          background: #f97908;               
+          transform: rotate(-50deg) translate(0,-50%);
+          opacity:0;
+          transition:0.6s;         
+      }
+  }
+
+.preview{
+  width: 85%;
+  max-width: 250px;
+  border: 2px solid #798186;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 15px;
+}
+
+.button-block{
+  margin-bottom: 30px;
+  margin-left: 30px;
+}

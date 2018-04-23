@@ -1,0 +1,47 @@
+.list-header{
+  width: 95%;
+  margin:0 auto;
+  color:white;
+  background-color: #798186;
+  display:flex;
+  justify-content: center;
+}
+
+.column{  
+  padding:10px;
+  background-color: #798186;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-size: 16px;
+  text-align: center;
+  border-right: 2px solid #f97908;
+
+    &:last-child{
+      border:none;
+    }
+}
+
+@each $column, $column-flex in
+    (photo:2,name:2,surname:2,date:2,age:2,position:2,remote:2,address:3)
+    {
+      .column--#{$column}{
+        flex: $column-flex;
+      }
+    }
+
+.list {
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+}
+
+.item {
+  border-bottom: 1px solid #ededed;
+  width: 100%;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+

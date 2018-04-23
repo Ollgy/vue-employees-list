@@ -1,0 +1,76 @@
+.employee-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  * {
+    user-select: none;
+  }
+
+  &:hover {
+    .remove {
+      visibility: visible;
+    }
+  }
+}
+
+.checked {
+  .column{
+    background-color: rgba(red, 0.2);
+  }
+}
+
+.active~.employee-info {  
+    
+  .label{
+    .column{
+      background-color: rgba(grey, 0.2);
+    }
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.employee-info{
+  width: 95%;
+  display:flex;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.column{
+  height: 100%;  
+  padding:10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  text-align: center;
+  border-right: 2px solid #f97908;
+  overflow:hidden;
+
+    &:last-child{
+      border:none;
+    }
+}
+
+@each $column, $column-flex in
+(photo:2,name:2,surname:2,date:2,age:2,position:2,remote:2,address:3)
+{
+  .column--#{$column}{
+    flex: $column-flex;
+  }
+}
+
+.photo{
+  width: 75px;
+  background-size: cover;
+  background-position: center center;
+}
+
