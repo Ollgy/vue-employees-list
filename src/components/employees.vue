@@ -67,9 +67,9 @@ export default {
         },
         checkActive(employeeItem){
             this.employees.forEach(function(item){
-                item.id==employeeItem.id
-                    ?item.active= true
-                    :item.active= false 
+                item.id === employeeItem.id
+                    ? item.active= true
+                    : item.active= false 
             })
         },
         removeEmployee(){
