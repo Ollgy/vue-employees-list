@@ -86,32 +86,31 @@
 <script>
 
 let uniqId = -1;
-//console.log('Click!');
 
 export default {
 
     props:{
         isEdit: Boolean,
-        editId:Number,
+        editId: Number,
         employee:{
-            type:Object,
-            default:()=>{
+            type: Object,
+            default:() => {
                 return {
-                    active:false,
-                    id:0,
-                    img:'/src/assets/photo/d_001.png',
-                    name:'',
-                    surname:'',
+                    active: false,
+                    id: 0,
+                    img: '/src/assets/photo/d_001.png',
+                    name: '',
+                    surname: '',
                     date: '',
-                    age:'',
-                    position:'техник',
-                    remote:false,
+                    age: '',
+                    position: 'техник',
+                    remote: false,
                     city: '', 
-                    street:'',
-                    building:'',
-                    flat:'',                
-                    checked:false,
-                    visibileByFilter:true
+                    street: '',
+                    building: '',
+                    flat: '',                
+                    checked: false,
+                    visibileByFilter: true
                 } 
             }
         }
@@ -121,11 +120,13 @@ export default {
             if(!isEdit){
                 uniqId++;  
                 this.employee.id = uniqId;
-            } else  this.employee.id = editId; 
+            } else  {
+                this.employee.id = editId;
+            } 
             this.employee.checked = false;
            
                             
-            this.$emit("addEmployee",{...this.employee});
+            this.$emit("addEmployee", {...this.employee});
                    
             this.employee.name="";
             this.employee.surname="";
@@ -147,7 +148,7 @@ export default {
                 var now = new Date(),
                 age = now.getFullYear() - birthDate.getFullYear();
                 if(age!=NaN){
-                    this.employee.age =  now.setFullYear(2000) < birthDate.setFullYear(2000) ? age - 1 : age;
+                    this.employee.age = now.setFullYear(2000) < birthDate.setFullYear(2000) ? age - 1 : age;
                 }else this.employee.age = ''
 
         }

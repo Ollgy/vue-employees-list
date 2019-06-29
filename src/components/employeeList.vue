@@ -37,13 +37,13 @@ export default {
     },
     methods:{
         removeEmployee(employeeId){
-            this.$emit('removeEmployee',employeeId)
+            this.$emit('removeEmployee', employeeId)
         },
         checkEmployee(employeeItem){
-            this.$emit('checkEmployee',employeeItem)
+            this.$emit('checkEmployee', employeeItem)
         },
         checkActive(employeeItem){
-            this.$emit('checkActive',employeeItem)
+            this.$emit('checkActive', employeeItem)
         }
     }
 

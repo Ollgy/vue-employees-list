@@ -1,7 +1,6 @@
 <template lang="pug">
     
     .employees
-        //- pre {{employees}}
         .search            
             input(type="text" 
                     placeholder="Поиск"
@@ -45,10 +44,10 @@ export default {
         return{
             employees: [],
             openModal: false,
-            editId:-1,
-            edit:false,
-            visibileByFilter:true,
-            searchInput:'',          
+            editId: -1,
+            edit: false,
+            visibileByFilter: true,
+            searchInput: '',          
         }
     },
 
@@ -57,23 +56,16 @@ export default {
             if(!this.edit){
                 this.employees.push(employee)
             } else{
-                this.employees = this.employees.map(item => item.id === this.editId?employee:item);
-                //this.employees[this.editId] = employee;
-                //this.employees.push()           
-               
+                this.employees = this.employees.map(item => item.id === this.editId ? employee : item);
                 this.edit = false;
                 this.editId = -1;
                 this.openModal=false;                
             }
         },
-        // removeEmployee(employeeId){
-        //     this.employees = this.employees.filter(item => item.id !== employeeId)
-        // },
         checkEmployee(employeeItem){
-            this.employees = this.employees.map(item => item.id === employeeItem.id?employeeItem:item);
+            this.employees = this.employees.map(item => item.id === employeeItem.id ? employeeItem : item);
         },
         checkActive(employeeItem){
-            
             this.employees.forEach(function(item){
                 item.id==employeeItem.id
                     ?item.active= true
@@ -81,22 +73,20 @@ export default {
             })
         },
         removeEmployee(){
-            this.employees = this.employees.filter(item => item.checked !== true || item.active == true)
+            this.employees = this.employees.filter(item => item.checked !== true || item.active === true)
         },
         editEmployee(){
             if(this.employees.some(item => item.active === true)){
-                this.openModal=true;
+                this.openModal = true;
                 this.edit = true;
-                this.editId = this.employees.filter(item => item.active !== false)[0].id;
+                this.editId = this.employees.find(item => item.active !== false).id;
             }             
         },
         filterEmployee(text){
-            console.log(text);
-            //if(!text)
             this.employees.forEach(function(item){
-                item.surname.indexOf(text)==0
-                    ?item.visibileByFilter=true
-                    :item.visibileByFilter=false 
+                !item.surname.indexOf(text)
+                    ? item.visibileByFilter = true
+                    : item.visibileByFilter = false 
             })
            
         }

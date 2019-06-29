@@ -31,24 +31,23 @@
 
 <script>
 export default {
-    props:{
-        employee:Object,      
+    props: {
+        employee: Object,      
     },
-    methods:{
+    methods: {
         removeEmployee(){
-            this.$emit('removeEmployee',this.employee.id)
+            this.$emit('removeEmployee', this.employee.id)
         },
         checkEmployee(e){
             const employeeItem = {
                 ...this.employee,
                 checked: e.target.checked
             }
-            //console.log(todoItem)
-            this.$emit('checkEmployee',employeeItem)
+            this.$emit('checkEmployee', employeeItem)
         },
         checkActive(){
             const employeeItem = this.employee;            
-            this.$emit('checkActive',employeeItem)
+            this.$emit('checkActive', employeeItem)
         }
     }
 
